@@ -64,13 +64,17 @@ root@805a832ce123:/kafka/bin# ./kafka-console-producer.sh --bootstrap-server loc
 
 ## terminal-1:
 root@0a00f86f4b06:/kafka/bin# ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 0 --property print.key=true
->1        hellow
+
+`1        hellow`
 
 ## terminal-2:
 root@f87c17deb4f8:/kafka/bin# ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 1 --property print.key=true
->4        why didnt you send the message to partition 1
+
+`4        why didnt you send the message to partition 1`
 
 ## terminal-3:
 root@f87c17deb4f8:/kafka/bin# ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 2 --property print.key=true
->2        I'm Cagri
->3        I'm sure, I am, I
+
+`2        I'm Cagri`
+
+`3        I'm sure, I am, I`
