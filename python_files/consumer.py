@@ -1,6 +1,5 @@
 from confluent_kafka import Consumer, KafkaError
 
-# Configure the Confluent Kafka consumer
 conf = {
     'bootstrap.servers': 'localhost:9092',
     'group.id': 'my-consumer-group',
