@@ -1,3 +1,5 @@
+Localhost connection is currently not working during the process.
+
 # KAFKA COMMAND
 
 ## Create Topic
