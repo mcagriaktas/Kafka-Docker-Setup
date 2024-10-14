@@ -1,4 +1,13 @@
-Localhost connection is currently not working during the process.
+⚠️⚠️ Localhost connection is currently not working during the process. ⚠️⚠️
+
+| Component             | Version     |
+|-----------------------|-------------|
+| Kafka                 | 3.8.0       |
+| Zookeeper             | 3.7.2       |
+| Java                  | 11-jre-slim |
+| Python                | 3.10.12     |
+| Scala                 | 2.12.18     |
+| Scala Kafka-Clients Jar| 3.8.0       |
 
 # KAFKA COMMAND
 
