@@ -62,7 +62,10 @@
 
 # Output:
 ## producer terminal
-root@805a832ce123:/kafka/bin# ./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic dahbest --property "parse.key=true" --property "key.separator=,"
+
+`docker exec -it kafka1 bash`
+
+``./kafka-console-producer.sh --bootstrap-server localhost:9092 --topic dahbest --property "parse.key=true" --property "key.separator=,"``
 
 `1, hellow`
 
@@ -74,7 +77,7 @@ root@805a832ce123:/kafka/bin# ./kafka-console-producer.sh --bootstrap-server loc
 
 ## terminal-1:
 
-`docker exec -it kafka1`
+`docker exec -it kafka1 bash`
 
 ``./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 0 --property print.key=true``
 
@@ -82,7 +85,7 @@ root@805a832ce123:/kafka/bin# ./kafka-console-producer.sh --bootstrap-server loc
 
 ## terminal-2:
 
-`docker exec -it kafka2`
+`docker exec -it kafka2 bash`
 
 ``./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 1 --property print.key=true``
 
@@ -90,7 +93,7 @@ root@805a832ce123:/kafka/bin# ./kafka-console-producer.sh --bootstrap-server loc
 
 ## terminal-3:
 
-`docker exec -it kafka3`
+`docker exec -it kafka3 bash`
 
 ``./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 2 --property print.key=true``
 
