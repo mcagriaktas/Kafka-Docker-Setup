@@ -37,9 +37,6 @@
 ## Upgrade The Topic (INCREASE)
 ./kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic cagri --partitions 5 
 
-##### ==================================================================== #####
-##### ==================================================================== #####
-
 ## Basic Example
 /kafka/bin/kafka-topics.sh \ (1)
 --bootstrap-server kafka:9092 \ (2)
@@ -53,9 +50,6 @@
 3. This flag is used to create a new topic.
 4. This defines the replication factor for the topic, which is the number of Kafka brokers that will replicate the data. (`Not: We deploy 3 broker so our max replication-factor is 3`)
 5. This defines the number of partitions for the topic. Each partition allows parallelism in message consumption.
-
-##### ==================================================================== #####
-##### ==================================================================== #####
 
 1. ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic dahbest --replication-factor 3 --partitions 3
 
@@ -79,17 +73,26 @@ root@805a832ce123:/kafka/bin# ./kafka-console-producer.sh --bootstrap-server loc
 `4, why didnt you send the message to partition 1`
 
 ## terminal-1:
-root@0a00f86f4b06:/kafka/bin# ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 0 --property print.key=true
+
+`docker exec -it kafka1`
+
+``./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 0 --property print.key=true``
 
 `1        hellow`
 
 ## terminal-2:
-root@f87c17deb4f8:/kafka/bin# ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 1 --property print.key=true
+
+`docker exec -it kafka2`
+
+``./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 1 --property print.key=true``
 
 `4        why didnt you send the message to partition 1`
 
 ## terminal-3:
-root@f87c17deb4f8:/kafka/bin# ./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 2 --property print.key=true
+
+`docker exec -it kafka3`
+
+``./kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic dahbest --from-beginning --partition 2 --property print.key=true``
 
 `2        I'm Cagri`
 
