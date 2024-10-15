@@ -1,4 +1,4 @@
-⚠️⚠️ Localhost connection is currently not working during the process. ⚠️⚠️
+⚠️⚠️ The producer and consumer connection to localhost is currently not working in the KRaft version. You can only use the `.sh` tools inside the container. ⚠️⚠️
 
 # Language and Systems Versions
 
