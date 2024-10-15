@@ -1,5 +1,10 @@
 ⚠️⚠️ The producer and consumer connection to localhost is currently not working in the KRaft version. You can only use the `.sh` tools inside the container. ⚠️⚠️
 
+⚠️ Key Points:
+- Versions 2.8.0 to 3.5.x: Both ZooKeeper and KRaft are supported.
+- Version 3.5.x and beyond: ZooKeeper is deprecated, and KRaft is the only supported mode.
+- Version 4.0.0 and later: ZooKeeper is completely removed, and only KRaft mode is available.
+  
 # Language and Systems Versions
 
 | Component             | Version     |
