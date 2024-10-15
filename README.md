@@ -16,6 +16,10 @@
 ## Create Topic
 ./kafka-topics.sh --bootstrap-server localhost:9092 --create --topic cagri --replication-factor 3 --partitions 3
 
+For zookeeper
+
+./kafka-topics.sh --zookeeper zookeeper:2181 --create --topic cagri --partitions 1 --replication-factor 1
+
 ## List The Topics
 ./kafka-topics.sh --bootstrap-server localhost:9092 --list
 
