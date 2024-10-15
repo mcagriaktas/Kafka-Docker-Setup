@@ -9,9 +9,9 @@
 
 | Component             | Version     |
 |-----------------------|-------------|
-| Kafka                 | 3.8.0 & 2.7.2       |
+| Kafka                 | 3.8.0 && 2.7.2       |
 | Zookeeper             | 3.7.2       |
-| Java                  | 11-jre-slim |
+| Java                  | 11-jre-slim && 17-slim-bullseye |
 | Python                | 3.10.12     |
 | Scala                 | 2.12.18     |
 | Scala Kafka-Clients Jar| 3.8.0       |
