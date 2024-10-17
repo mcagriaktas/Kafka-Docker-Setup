@@ -1,25 +1,26 @@
-from kafka import KafkaProducer
-from kafka.errors import KafkaError
+from confluent_kafka import Producer
 import json
 import time
 
-producer = KafkaProducer(
-    bootstrap_servers=['localhost:19092', 'localhost:29092', 'localhost:39092'],
-    value_serializer=lambda v: json.dumps(v).encode('utf-8'),
-    api_version=(3, 8, 0)
-)
+producer_conf = {
+    'bootstrap.servers': 'localhost:19092,localhost:29092,localhost:39092',
+    'client.id': 'my-python-producer',
+    'acks': 'all'
+}
 
-topic = 'cagri1'
+producer = Producer(producer_conf)
+
+topic = 'cagri'
+
+def delivery_report(err, msg):
+    if err is not None:
+        print(f"Message delivery failed: {err}")
+    else:
+        print(f"Message delivered to {msg.topic()} [{msg.partition()}] at offset {msg.offset()}")
 
 for i in range(1000000):
-    message = {'number': i, 'timestamp': time.time()}
-    future = producer.send(topic, value=message)
-    try:
-        record_metadata = future.get(timeout=10)
-        print(f"Message sent successfully: topic={record_metadata.topic}, partition={record_metadata.partition}, offset={record_metadata.offset}")
-    except KafkaError as e:
-        print(f"Failed to send message: {e}")
-    time.sleep(1)
+    message = {'number': i, 'timestamp': time.time()}  
+    producer.produce(topic, value=json.dumps(message), callback=delivery_report)
+    producer.poll(1)
 
 producer.flush()
-producer.close()
