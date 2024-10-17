@@ -2,7 +2,7 @@ from confluent_kafka import Consumer, KafkaError
 import json
 
 conf = {
-    'bootstrap.servers': 'localhost:9092',
+    'bootstrap.servers': 'localhost:19092,localhost:29092,localhost:39092',
     'group.id': 'my_group',
     'auto.offset.reset': 'earliest',  
     'enable.auto.commit': True
