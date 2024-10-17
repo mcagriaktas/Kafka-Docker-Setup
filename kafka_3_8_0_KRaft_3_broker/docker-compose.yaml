@@ -10,6 +10,7 @@ services:
     ports:
       - '9192:9092'
       - '19092:19092'
+      - '19192:9192'
     volumes:
       - ./config/kafka1/server.properties:/kafka/config/server.properties
       - ./kafka_data/kafka1/:/data/kafka/
@@ -24,7 +25,8 @@ services:
         ipv4_address: 172.80.0.12
     ports:
       - '9292:9092'
-      - '29092:19092'
+      - '29092:29092'
+      - '29192:9192'
     volumes:
       - ./config/kafka2/server.properties:/kafka/config/server.properties
       - ./kafka_data/kafka2/:/data/kafka/
@@ -39,7 +41,8 @@ services:
         ipv4_address: 172.80.0.13
     ports:
       - '9392:9092'
-      - '39092:19092'
+      - '39092:39092'
+      - '39192:9192'
     volumes:
       - ./config/kafka3/server.properties:/kafka/config/server.properties
       - ./kafka_data/kafka3/:/data/kafka/
