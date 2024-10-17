@@ -5,7 +5,7 @@ conf = {
     'bootstrap.servers': 'localhost:19092,localhost:29092,localhost:39092',
     'group.id': 'my_group',
     'auto.offset.reset': 'earliest',  
-    'enable.auto.commit': True
+    'enable.auto.commit': True        
 }
 
 consumer = Consumer(conf)
@@ -15,10 +15,9 @@ consumer.subscribe(['cagri'])
 try:
     print("Consuming messages from the 'cagri' topic...")
     while True:
-        msg = consumer.poll(1.0) 
-        
+        msg = consumer.poll(1.0)  
         if msg is None:
-            continue 
+            continue
         
         if msg.error():
             if msg.error().code() == KafkaError._PARTITION_EOF:
